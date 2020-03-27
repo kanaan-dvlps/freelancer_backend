@@ -14,10 +14,11 @@ GET 5.253.25.222:3000/api/users
 ```
 GET 5.253.25.222:3000/api/user/:id
 ```
-## TODO:
+TODO:<br />
 [x] route auth<br />
 [x] token generation
 
-*don't send the token and role to server by mistake*
-*token is set to null by default from backend*
-*role is set to user by default from backend*
+NOTE:
+*don't send the token and role to server by mistake*<br />
+*token is set to null by default from backend*<br />
+*role is set to user by default from backend*<br />
