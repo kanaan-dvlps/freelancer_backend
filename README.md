@@ -18,7 +18,7 @@ TODO:<br />
 [x] route auth<br />
 [x] token generation
 
-NOTE:
+NOTE:<br />
 *don't send the token and role to server by mistake*<br />
 *token is set to null by default from backend*<br />
 *role is set to user by default from backend*<br />
