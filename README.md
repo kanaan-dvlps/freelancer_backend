@@ -14,7 +14,7 @@ GET 5.253.25.222:3000/api/users
 ```
 GET 5.253.25.222:3000/api/user/:id
 ```
-
+## TODO:
 [x] route auth<br />
 [x] token generation
 
