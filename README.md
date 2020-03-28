@@ -4,18 +4,22 @@
 
 >Login route
 ```
+Method: POST
 POST 5.253.25.222:3000/api/login
 ```
 >Registration route
 ```
+Method: POST
 POST 5.253.25.222:3000/api/registration
 ```
 >users route
 ```
+Method: GET
 GET 5.253.25.222:3000/api/users
 ```
 >user route
 ```
+Method: GET
 GET 5.253.25.222:3000/api/user/:id
 ```
 TODO:<br />
