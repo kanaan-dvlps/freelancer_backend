@@ -16,7 +16,6 @@ GET 5.253.25.222:3000/api/user/:id
 ```
 TODO:<br />
 [x] route auth<br />
-[x] token generation
 
 NOTE:<br />
 *don't send the token and role to server by mistake*<br />
