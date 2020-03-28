@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const ODMMamager = require('../../helpers/ODMManager');
+const Auth = require('../../helpers/Auth');
 
 // ! ------------------------
 /*
@@ -16,7 +17,7 @@ router.get('/users', (req, res, next) => {
   const Manager = new ODMMamager();
   Manager.getEntity()
     .then(data => {res.status(200).json({data})})
-    .catch(error => {res.status(401).json({error: error.message})});
+    .catch(error => {res.status(401).json({entityError: error.message})});
 });
 
 // ! ########### Route Module ###########

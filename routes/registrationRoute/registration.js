@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const joi = require('@hapi/joi');
 const DBManager = require('../../helpers/ODMManager');
+const Auth = require('../../helpers/Auth');
 
 // ! ------------------------
 /*
-  ? @VPS Route      GET 5.253.25.222:3000/api/registration      
-  ? @Local Route    GET http://localhost:3000/api/registration
+  ? @VPS Route      POST 5.253.25.222:3000/api/registration      
+  ? @Local Route    POST http://localhost:3000/api/registration
   ? @description    user registration route
   ? @Access         public
-  * @Response       code: 201, data: new user
+  * @Response       code: 201, data: new user and token
   
   * mock data:
   * {
@@ -44,7 +45,15 @@ router.post('/registration', (req, res, next) => {
 
   const Manager = new DBManager();
   Manager.addEntity(email, username, password, role, token)
-    .then(data => res.status(201).json({data})).catch(error => console.log(error));
+    .then(user => Auth.token(user)
+      .then(newtoken => {
+        // res.status(201).json({user, newtoken});
+        Manager.editEntity({'username': username}, email, username, password, role, newtoken)
+        .then(editedUser => res.json({editedUser, newtoken}))
+        .catch(error => res.status(500).json({editError: error.message}));
+      })
+      .catch(error => res.status(500).json({jwtError: error.message})))
+    .catch(error => res.status(500).json({managerError: error.message}));
 });
 
 // ! ########### Route Module ###########

@@ -23,11 +23,14 @@ app.use(passport.session());
 
 // ? route files
 const registrationModule = require('./routes/registrationRoute/registration');
+const login = require('./routes/login/login');
 const getUsers = require('./routes/userRoutes/getUsers');
 const getUser = require('./routes/userRoutes/getUser');
 
+
 // ? router middleware
 app.use('/api', registrationModule);
+app.use('/api', login);
 app.use('/api', getUsers);
 app.use('/api', getUser);
 
